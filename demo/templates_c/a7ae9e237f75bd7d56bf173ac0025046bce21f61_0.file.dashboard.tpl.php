@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-08-02 10:23:41
+/* Smarty version 3.1.36, created on 2020-08-02 10:38:32
   from 'D:\xampp\htdocs\smarty\demo\templates\dashboard.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5f26780d7b1532_22303404',
+  'unifunc' => 'content_5f267b88034309_98442990',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a7ae9e237f75bd7d56bf173ac0025046bce21f61' => 
     array (
       0 => 'D:\\xampp\\htdocs\\smarty\\demo\\templates\\dashboard.tpl',
-      1 => 1596356620,
+      1 => 1596357511,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f26780d7b1532_22303404 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f267b88034309_98442990 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->smarty->ext->configLoad->_loadConfigFile($_smarty_tpl, "test.conf", "setup", 0);
 ?>
 
@@ -79,25 +79,32 @@ $_smarty_tpl->smarty->ext->configLoad->_loadConfigFile($_smarty_tpl, "test.conf"
                     </tr>
                 </thead>
                 <?php
-$__section_users_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['users']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_users_0_total = $__section_users_0_loop;
-$_smarty_tpl->tpl_vars['__smarty_section_users'] = new Smarty_Variable(array());
-if ($__section_users_0_total !== 0) {
-for ($__section_users_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_users']->value['index'] = 0; $__section_users_0_iteration <= $__section_users_0_total; $__section_users_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_users']->value['index']++){
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['users']->value, 'u', false, 'srno');
+$_smarty_tpl->tpl_vars['u']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['srno']->value => $_smarty_tpl->tpl_vars['u']->value) {
+$_smarty_tpl->tpl_vars['u']->do_else = false;
 ?>
                     <tr>
                         <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['srno']->value+1;?>
 </td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['users']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_users']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_users']->value['index'] : null)]['user_name'];?>
- </td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['users']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_users']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_users']->value['index'] : null)]['user_email'];?>
- </td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['u']->value['user_name'];?>
+</td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['u']->value['user_email'];?>
+</td>
                     </tr>
                 <?php
 }
-}
+if ($_smarty_tpl->tpl_vars['u']->do_else) {
 ?>
-            </table>
+                    <tr>
+                        <td colspan="3" class="text-danger text-center">No Record Found</td>
+                    </tr>
+                <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+
+
+                            </table>
 
         </div>
 

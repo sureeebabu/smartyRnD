@@ -13,10 +13,12 @@ $query = mysqli_query($connect, "SELECT * FROM user_tbl") or die("Query failed :
 while ($result = mysqli_fetch_assoc($query)) {
     $data[] = $result;
 }
-$smarty->assign('users', $data);
-$smarty->assign('srno', 0);
+if (!empty($data)) {
+    $smarty->assign('users', $data);
+} else {
+    $smarty->assign('users', '');
+}
+
+// $smarty->assign('srno', 0);
 $smarty->display('dashboard.tpl');
 mysqli_close($connect);
-
-
-

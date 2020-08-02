@@ -48,13 +48,26 @@
                         <th class="text-center">Email</th>
                     </tr>
                 </thead>
-                {section name=users loop=$users}
+                {foreach from=$users item=u key=srno}
                     <tr>
-                        <td class="text-center">{$srno + 1 }</td>
+                        <td class="text-center">{$srno+1}</td>
+                        <td>{$u.user_name}</td>
+                        <td>{$u.user_email}</td>
+                    </tr>
+                {foreachelse}
+                    <tr>
+                        <td colspan="3" class="text-danger text-center">No Record Found</td>
+                    </tr>
+                {/foreach}
+
+
+                {* {section name=users loop=$users}
+                    <tr>
+                        <td class="text-center">{$srno+2}</td>
                         <td>{$users[users].user_name} </td>
                         <td>{$users[users].user_email} </td>
                     </tr>
-                {/section}
+                {/section} *}
             </table>
 
         </div>
